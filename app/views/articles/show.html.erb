@@ -6,3 +6,15 @@
 <p>
   <%=@article.body %>
 </p>
+
+<ul>
+  <li>
+    <%= link_to "Edit" , edit_article_path(@article) %>
+  </li>
+
+</ul>
+
+
+<p>
+  <%= link_to "Voltar" , root_path %>
+</p>
