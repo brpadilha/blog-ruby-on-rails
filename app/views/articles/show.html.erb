@@ -1,40 +1,27 @@
-<h1>Article</h1>
-
 <h2>
   <%=@article.title%>
 </h2>
 <p>
   <%=@article.body %>
 </p>
-
 <ul>
   <li>
     <%= link_to "Edit" , edit_article_path(@article) %>
   </li>
-
   <li>
-    <%= link_to "Destroy" , article_path(@article), method: :delete, data: {corfirm: "Are you sure?" } %>
+    <%= link_to "Destroy" , article_path(@article), method: :delete, data: {confirm: "Are you sure?" } %>
   </li>
-
 </ul>
 
-<h2>
-  Add a comment:
-</h2>
-<%= form_with model: [@article, @article.comments.build] do |form| %>
+<h2>Comments</h2>
 
-  <p>
-    <%= form.label :commenter %> <br>
-      <%= form.text_field :commenter %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-      <%= form.text_field :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
 
-  <p>
-    <%= link_to "Voltar" , root_path %>
-  </p>
+<%= render @article.comments %>
+
+  <h2>
+    Add a comment:
+  </h2>
+  <%= render 'comments/form' %>
+    <p>
+      <%= link_to "Voltar" , root_path %>
+    </p>
